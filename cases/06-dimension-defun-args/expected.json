@@ -1,0 +1,40 @@
+{
+  "id": "06-dimension-defun-args",
+  "title": "Points passed as defun arguments into DIMLINEAR",
+  "features": [
+    "c: function called with arguments",
+    "DIMLINEAR"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "DIMENSION",
+        "layer": "0",
+        "kind": "linear",
+        "xline1": [
+          0,
+          0,
+          0
+        ],
+        "xline2": [
+          5000,
+          0,
+          0
+        ],
+        "rotation": 0,
+        "measurement": 5000
+      }
+    ]
+  },
+  "provenance": "Adapted from qcad-mcp tests/fixtures/dimension_linear.lsp (adapted). Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

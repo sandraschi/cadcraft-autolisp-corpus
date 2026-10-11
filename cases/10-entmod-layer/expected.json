@@ -1,0 +1,46 @@
+{
+  "id": "10-entmod-layer",
+  "title": "entget, assoc, subst and entmod to move an entity to another layer",
+  "features": [
+    "entlast",
+    "entget",
+    "assoc",
+    "subst",
+    "cons",
+    "entmod"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "WALLS",
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "end": [
+          10,
+          0,
+          0
+        ]
+      }
+    ],
+    "layers": [
+      {
+        "name": "WALLS"
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

@@ -1,0 +1,66 @@
+{
+  "id": "07-ssget-count",
+  "title": "ssget X and sslength on a known drawing, result printed with rtos",
+  "features": [
+    "ssget X",
+    "sslength",
+    "if/progn",
+    "strcat",
+    "rtos"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0,
+      "DIMZIN": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "end": [
+          10,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          5,
+          0
+        ],
+        "end": [
+          10,
+          5,
+          0
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          5,
+          2.5,
+          0
+        ],
+        "radius": 1
+      }
+    ],
+    "printed": "Total entities: 3"
+  },
+  "provenance": "Adapted from qcad-mcp tests/fixtures/entity_count.lsp (adapted: draws its own 3 entities first). Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

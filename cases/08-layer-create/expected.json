@@ -1,0 +1,35 @@
+{
+  "id": "08-layer-create",
+  "title": "Create layers with colours through the command-line LAYER",
+  "features": [
+    "-LAYER New / Color"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [],
+    "layers": [
+      {
+        "name": "Walls",
+        "color": 1
+      },
+      {
+        "name": "Doors",
+        "color": 3
+      },
+      {
+        "name": "Furniture",
+        "color": 5
+      }
+    ]
+  },
+  "provenance": "Adapted from qcad-mcp tests/fixtures/layer_create.lsp (adapted: -LAYER so no dialog can open). Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

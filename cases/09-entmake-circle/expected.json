@@ -1,0 +1,34 @@
+{
+  "id": "09-entmake-circle",
+  "title": "entmake from a quoted association list",
+  "features": [
+    "entmake",
+    "quoted dotted pairs",
+    "3D point group 10"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          5,
+          5,
+          0
+        ],
+        "radius": 2.5
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}
