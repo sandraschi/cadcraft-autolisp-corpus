@@ -1,0 +1,2 @@
+# Checksums in SHA256SUMS are over LF files; keep them LF on every platform.
+* text eol=lf
