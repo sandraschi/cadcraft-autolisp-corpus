@@ -1,0 +1,48 @@
+{
+  "id": "03-rect-defun-params",
+  "title": "Plain defun with parameters calling RECTANG",
+  "features": [
+    "defun with arguments",
+    "RECTANG"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": [
+      "RECTANG options at defaults (no fillet, chamfer, width or elevation left from earlier use)"
+    ]
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "0",
+        "closed": true,
+        "vertices": [
+          [
+            0,
+            0
+          ],
+          [
+            100,
+            0
+          ],
+          [
+            100,
+            80
+          ],
+          [
+            0,
+            80
+          ]
+        ]
+      }
+    ]
+  },
+  "provenance": "Adapted from qcad-mcp tests/fixtures/draw_rect_defun.lsp (adapted). Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

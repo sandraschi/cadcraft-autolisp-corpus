@@ -1,0 +1,185 @@
+{
+  "id": "05-floorplan-mixed",
+  "title": "Lines, circle, 3-point arc, text and linear dimensions in one routine",
+  "features": [
+    "command",
+    "ARC 3-point",
+    "TEXT",
+    "DIMLINEAR",
+    "princ"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0,
+      "DIMZIN": 0
+    },
+    "notes": [
+      "Current text style has height 0, so TEXT prompts for height",
+      "Current dimension style is the template default"
+    ]
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "derivation": [
+    "ARC: the circle through (1000,0), (1000,900), (1900,0) has centre (1450,450) and radius 450*sqrt(2). The start point lies at 225 deg, the second point at 135 deg, the end point at 315 deg, so the arc runs clockwise; DXF stores arcs counter-clockwise, hence start_angle 315 and end_angle 225.",
+    "DIMLINEAR: the first dimension line location (4000,6500) lies above two points with equal y, so the dimension is horizontal (rotation 0); the second location (8500,3000) lies beside two points with equal x and between their y values, so it is vertical (rotation 90)."
+  ],
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "end": [
+          8000,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          8000,
+          0,
+          0
+        ],
+        "end": [
+          8000,
+          6000,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          8000,
+          6000,
+          0
+        ],
+        "end": [
+          0,
+          6000,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          6000,
+          0
+        ],
+        "end": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          4000,
+          0,
+          0
+        ],
+        "end": [
+          4000,
+          6000,
+          0
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          2000,
+          3000,
+          0
+        ],
+        "radius": 150
+      },
+      {
+        "type": "ARC",
+        "layer": "0",
+        "center": [
+          1450,
+          450,
+          0
+        ],
+        "radius": 636.396103068,
+        "start_angle": 315,
+        "end_angle": 225
+      },
+      {
+        "type": "TEXT",
+        "layer": "0",
+        "insert": [
+          2000,
+          5400,
+          0
+        ],
+        "height": 250,
+        "rotation": 0,
+        "text": "Living Room"
+      },
+      {
+        "type": "TEXT",
+        "layer": "0",
+        "insert": [
+          6000,
+          5400,
+          0
+        ],
+        "height": 250,
+        "rotation": 0,
+        "text": "Bedroom"
+      },
+      {
+        "type": "DIMENSION",
+        "layer": "0",
+        "kind": "linear",
+        "xline1": [
+          0,
+          6200,
+          0
+        ],
+        "xline2": [
+          8000,
+          6200,
+          0
+        ],
+        "rotation": 0,
+        "measurement": 8000
+      },
+      {
+        "type": "DIMENSION",
+        "layer": "0",
+        "kind": "linear",
+        "xline1": [
+          8200,
+          0,
+          0
+        ],
+        "xline2": [
+          8200,
+          6000,
+          0
+        ],
+        "rotation": 90,
+        "measurement": 6000
+      }
+    ],
+    "printed": "Tiny house plan complete."
+  },
+  "provenance": "Adapted from qcad-mcp tests/fixtures/complex_floorplan.lsp (adapted). Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

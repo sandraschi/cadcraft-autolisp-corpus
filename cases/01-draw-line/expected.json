@@ -1,0 +1,38 @@
+{
+  "id": "01-draw-line",
+  "title": "LINE through command with 2D point lists",
+  "features": [
+    "defun c:",
+    "command",
+    "list"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "end": [
+          100,
+          50,
+          0
+        ]
+      }
+    ]
+  },
+  "provenance": "Adapted from qcad-mcp tests/fixtures/draw_line.lsp (adapted: OSMODE, _. prefix). Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

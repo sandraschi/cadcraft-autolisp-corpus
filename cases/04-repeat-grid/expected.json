@@ -1,0 +1,585 @@
+{
+  "id": "04-repeat-grid",
+  "title": "Nested repeat loops with a local variable list",
+  "features": [
+    "repeat",
+    "setq",
+    "defun locals (/ x y)",
+    "arithmetic"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "end": [
+          100,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "end": [
+          0,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          100,
+          0
+        ],
+        "end": [
+          100,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          100,
+          0
+        ],
+        "end": [
+          0,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          200,
+          0
+        ],
+        "end": [
+          100,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          200,
+          0
+        ],
+        "end": [
+          0,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          300,
+          0
+        ],
+        "end": [
+          100,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          300,
+          0
+        ],
+        "end": [
+          0,
+          400,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          0,
+          0
+        ],
+        "end": [
+          200,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          0,
+          0
+        ],
+        "end": [
+          100,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          100,
+          0
+        ],
+        "end": [
+          200,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          100,
+          0
+        ],
+        "end": [
+          100,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          200,
+          0
+        ],
+        "end": [
+          200,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          200,
+          0
+        ],
+        "end": [
+          100,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          300,
+          0
+        ],
+        "end": [
+          200,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          100,
+          300,
+          0
+        ],
+        "end": [
+          100,
+          400,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          0,
+          0
+        ],
+        "end": [
+          300,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          0,
+          0
+        ],
+        "end": [
+          200,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          100,
+          0
+        ],
+        "end": [
+          300,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          100,
+          0
+        ],
+        "end": [
+          200,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          200,
+          0
+        ],
+        "end": [
+          300,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          200,
+          0
+        ],
+        "end": [
+          200,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          300,
+          0
+        ],
+        "end": [
+          300,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          200,
+          300,
+          0
+        ],
+        "end": [
+          200,
+          400,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          0,
+          0
+        ],
+        "end": [
+          400,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          0,
+          0
+        ],
+        "end": [
+          300,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          100,
+          0
+        ],
+        "end": [
+          400,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          100,
+          0
+        ],
+        "end": [
+          300,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          200,
+          0
+        ],
+        "end": [
+          400,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          200,
+          0
+        ],
+        "end": [
+          300,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          300,
+          0
+        ],
+        "end": [
+          400,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          300,
+          300,
+          0
+        ],
+        "end": [
+          300,
+          400,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          0,
+          0
+        ],
+        "end": [
+          500,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          0,
+          0
+        ],
+        "end": [
+          400,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          100,
+          0
+        ],
+        "end": [
+          500,
+          100,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          100,
+          0
+        ],
+        "end": [
+          400,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          200,
+          0
+        ],
+        "end": [
+          500,
+          200,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          200,
+          0
+        ],
+        "end": [
+          400,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          300,
+          0
+        ],
+        "end": [
+          500,
+          300,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          400,
+          300,
+          0
+        ],
+        "end": [
+          400,
+          400,
+          0
+        ]
+      }
+    ]
+  },
+  "provenance": "Adapted from qcad-mcp tests/fixtures/array_grid.lsp (adapted). Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

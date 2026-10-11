@@ -1,0 +1,17 @@
+;; 05-floorplan-mixed: Lines, circle, 3-point arc, text and linear dimensions in one routine
+(setvar "OSMODE" 0) ; running object snaps would move command points
+(defun c:tiny-house ()
+  (command "_.LINE" (list 0 0) (list 8000 0) "")
+  (command "_.LINE" (list 8000 0) (list 8000 6000) "")
+  (command "_.LINE" (list 8000 6000) (list 0 6000) "")
+  (command "_.LINE" (list 0 6000) (list 0 0) "")
+  (command "_.LINE" (list 4000 0) (list 4000 6000) "")
+  (command "_.CIRCLE" (list 2000 3000) 150)
+  (command "_.ARC" (list 1000 0) (list 1000 900) (list 1900 0))
+  (command "_.TEXT" (list 2000 5400) 250 0 "Living Room")
+  (command "_.TEXT" (list 6000 5400) 250 0 "Bedroom")
+  (command "_.DIMLINEAR" (list 0 6200) (list 8000 6200) (list 4000 6500))
+  (command "_.DIMLINEAR" (list 8200 0) (list 8200 6000) (list 8500 3000))
+  (princ "\nTiny house plan complete.")
+)
+(c:tiny-house)
