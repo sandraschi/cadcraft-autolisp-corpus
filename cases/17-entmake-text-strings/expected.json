@@ -1,0 +1,39 @@
+{
+  "id": "17-entmake-text-strings",
+  "title": "entmake TEXT whose string is built with strcat, itoa and rtos",
+  "features": [
+    "entmake",
+    "list/cons building",
+    "strcat",
+    "itoa",
+    "rtos with DIMZIN"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0,
+      "DIMZIN": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "TEXT",
+        "layer": "0",
+        "insert": [
+          0,
+          0,
+          0
+        ],
+        "height": 2.5,
+        "rotation": 0,
+        "text": "Rooms: 3, area 12.50"
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

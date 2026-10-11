@@ -1,0 +1,94 @@
+{
+  "id": "16-polar-pentagram",
+  "title": "polar and pi building a pentagram",
+  "features": [
+    "polar",
+    "pi",
+    "real arithmetic"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          10,
+          0,
+          0
+        ],
+        "end": [
+          -8.090169944,
+          5.877852523,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          3.090169944,
+          9.510565163,
+          0
+        ],
+        "end": [
+          -8.090169944,
+          -5.877852523,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          -8.090169944,
+          5.877852523,
+          0
+        ],
+        "end": [
+          3.090169944,
+          -9.510565163,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          -8.090169944,
+          -5.877852523,
+          0
+        ],
+        "end": [
+          10,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          3.090169944,
+          -9.510565163,
+          0
+        ],
+        "end": [
+          3.090169944,
+          9.510565163,
+          0
+        ]
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

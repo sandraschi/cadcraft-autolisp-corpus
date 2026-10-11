@@ -1,0 +1,65 @@
+{
+  "id": "18-entnext-walk",
+  "title": "Walk the database with entnext and count entity types",
+  "features": [
+    "entnext (no argument and with argument)",
+    "while",
+    "cond",
+    "=",
+    "itoa"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          0,
+          0
+        ],
+        "end": [
+          10,
+          0,
+          0
+        ]
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          2,
+          0
+        ],
+        "end": [
+          10,
+          2,
+          0
+        ]
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          5,
+          5,
+          0
+        ],
+        "radius": 1
+      }
+    ],
+    "printed": "LINE=2 CIRCLE=1"
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}
