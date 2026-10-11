@@ -1,0 +1,96 @@
+{
+  "id": "14-recursion-nested-squares",
+  "title": "Recursive defun drawing nested squares",
+  "features": [
+    "recursion",
+    "car/cadr",
+    "1-",
+    "real division"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": [
+      "RECTANG options at defaults"
+    ]
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "LWPOLYLINE",
+        "layer": "0",
+        "closed": true,
+        "vertices": [
+          [
+            -8,
+            -8
+          ],
+          [
+            8,
+            -8
+          ],
+          [
+            8,
+            8
+          ],
+          [
+            -8,
+            8
+          ]
+        ]
+      },
+      {
+        "type": "LWPOLYLINE",
+        "layer": "0",
+        "closed": true,
+        "vertices": [
+          [
+            -4,
+            -4
+          ],
+          [
+            4,
+            -4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            -4,
+            4
+          ]
+        ]
+      },
+      {
+        "type": "LWPOLYLINE",
+        "layer": "0",
+        "closed": true,
+        "vertices": [
+          [
+            -2,
+            -2
+          ],
+          [
+            2,
+            -2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            -2,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

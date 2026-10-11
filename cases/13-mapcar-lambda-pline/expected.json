@@ -1,0 +1,86 @@
+{
+  "id": "13-mapcar-lambda-pline",
+  "title": "mapcar with lambda, foreach, and one PLINE fed across several command calls",
+  "features": [
+    "quote list",
+    "mapcar",
+    "lambda",
+    "foreach",
+    "POINT",
+    "command continued across calls"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "POINT",
+        "layer": "0",
+        "location": [
+          5,
+          5,
+          0
+        ]
+      },
+      {
+        "type": "POINT",
+        "layer": "0",
+        "location": [
+          15,
+          5,
+          0
+        ]
+      },
+      {
+        "type": "POINT",
+        "layer": "0",
+        "location": [
+          15,
+          15,
+          0
+        ]
+      },
+      {
+        "type": "POINT",
+        "layer": "0",
+        "location": [
+          5,
+          15,
+          0
+        ]
+      },
+      {
+        "type": "LWPOLYLINE",
+        "layer": "0",
+        "closed": true,
+        "vertices": [
+          [
+            5,
+            5
+          ],
+          [
+            15,
+            5
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            5,
+            15
+          ]
+        ]
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

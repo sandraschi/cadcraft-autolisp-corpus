@@ -1,0 +1,71 @@
+{
+  "id": "15-while-cond-clayer",
+  "title": "while loop with cond choosing the current layer per iteration",
+  "features": [
+    "while",
+    "cond",
+    "T",
+    "setvar CLAYER",
+    "reals in comparisons"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radius": 1
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radius": 2
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "BIG",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radius": 3
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "BIG",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radius": 4
+      }
+    ],
+    "layers": [
+      {
+        "name": "BIG"
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}

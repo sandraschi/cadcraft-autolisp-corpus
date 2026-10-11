@@ -1,0 +1,71 @@
+{
+  "id": "12-ssget-filter-loop",
+  "title": "ssget X with a type filter, then ssname loop doubling every radius",
+  "features": [
+    "ssget filter list",
+    "sslength",
+    "ssname",
+    "repeat",
+    "1+",
+    "entmod"
+  ],
+  "preconditions": {
+    "drawing": "new, empty drawing from the default template, current layer 0",
+    "sysvars": {
+      "OSMODE": 0
+    },
+    "notes": []
+  },
+  "run": "load routine.lsp; the file invokes itself",
+  "expect": {
+    "compare": "unordered",
+    "tolerance": 1e-9,
+    "entities": [
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          0,
+          0,
+          0
+        ],
+        "radius": 2
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          10,
+          0,
+          0
+        ],
+        "radius": 2
+      },
+      {
+        "type": "CIRCLE",
+        "layer": "0",
+        "center": [
+          20,
+          0,
+          0
+        ],
+        "radius": 2
+      },
+      {
+        "type": "LINE",
+        "layer": "0",
+        "start": [
+          0,
+          5,
+          0
+        ],
+        "end": [
+          20,
+          5,
+          0
+        ]
+      }
+    ]
+  },
+  "provenance": "Written for this corpus. Expected values derived by hand from AutoLISP and DXF semantics; not produced by or checked against AutoCAD."
+}
